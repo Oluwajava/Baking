@@ -9,5 +9,7 @@ public interface Constants {
     interface Keys {
         String baseUrl = "https://d17h27t6h515a5.cloudfront.net/";
         String recipe = "recipe";
+        String ingredients = "ingredients";
+        String shared_preference = "shared_preference";
     }
 }

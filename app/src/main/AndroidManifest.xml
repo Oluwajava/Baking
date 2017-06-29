@@ -27,18 +27,15 @@
             android:name=".activity.mainactivity.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-
-        <receiver android:name=".widget.IngredientWidgetProvider">
+        <receiver android:name=".widget.IngredientAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/ingredient_widget_provider_info" />
+                android:resource="@xml/ingredient_app_widget_info" />
         </receiver>
-
-        <service android:name=".widget.ListWidgetService"/>
     </application>
 
 </manifest>

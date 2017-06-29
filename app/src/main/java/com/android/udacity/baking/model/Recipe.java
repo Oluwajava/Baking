@@ -29,6 +29,7 @@ public class Recipe implements Parcelable {
     private int id;
     private RecipeSteps[] steps;
 
+
     public String getImage() {
         return this.image;
     }

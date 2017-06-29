@@ -2,6 +2,7 @@ package com.android.udacity.baking.fragments.recipe;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import com.android.udacity.baking.adapter.RecyclerViewItemClickListener;
 import com.android.udacity.baking.data.local.AppDatabase;
@@ -51,6 +52,8 @@ public class RecipePresenter implements RecipeContract.Presenter, RecyclerViewIt
     @Override
     public void start() {
         getRecipes();
+
+
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.android.udacity.baking.fragments.recipe;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +19,8 @@ import com.android.udacity.baking.adapter.RecyclerViewItemClickListener;
 import com.android.udacity.baking.base.BaseFragment;
 import com.android.udacity.baking.data.local.AppDatabase;
 import com.android.udacity.baking.model.Recipe;
+import com.android.udacity.baking.model.RecipeIngredients;
+import com.android.udacity.baking.utils.Constants;
 
 import java.util.List;
 
@@ -66,6 +70,15 @@ public class RecipeFragment extends BaseFragment implements RecipeContract.View{
             recipeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         }
         recipeRecyclerView.setAdapter(recipeAdapter);
+        SharedPreferences sharedpreferences = getActivity().getSharedPreferences(Constants.Keys.shared_preference, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        String text = "";
+        for(RecipeIngredients ingredient: recipeList.get(0).getIngredients()) {
+            text.concat(ingredient.getIngredient()+"\n");
+        }
+        editor.putString(Constants.Keys.ingredients, text);
+        editor.commit();
     }
 
     @Override

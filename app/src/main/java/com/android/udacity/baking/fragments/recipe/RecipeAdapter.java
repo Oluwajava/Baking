@@ -90,7 +90,7 @@ public class RecipeAdapter extends AbstractRecyclerView<Recipe, RecipeAdapter.Vi
             ingredientText.setText(String.valueOf(item.getIngredients().length));
             stepsText.setText(String.valueOf(item.getSteps().length));
             Glide.with(context)
-                    .load("https://amandeleine.files.wordpress.com/2012/02/nutellaslice.jpg")
+                    .load(item.getImage())
                     .centerCrop()
                     .into(recipeImage);
 

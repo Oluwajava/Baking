@@ -59,7 +59,6 @@ public class RecipeDetailFragment extends BaseFragment implements RecipeDetailCo
         ButterKnife.bind(this, view);
 
         mPlayerView = (SimpleExoPlayerView) view.findViewById(R.id.playerView);
-
         videoPlayer = new VideoPlayer.Builder(mPlayerView)
                 .exoPlayer(mExoPlayer)
                 .context(getActivity())
@@ -80,6 +79,13 @@ public class RecipeDetailFragment extends BaseFragment implements RecipeDetailCo
         }
         return view;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        videoPlayer.releasePlayer();
+    }
+
     @Override
     public void setPresenter(RecipeDetailContract.Presenter presenter) {
         this.presenter = presenter;
@@ -97,7 +103,6 @@ public class RecipeDetailFragment extends BaseFragment implements RecipeDetailCo
     @Override
     public void onDestroy() {
         super.onDestroy();
-        videoPlayer.releasePlayer();
     }
 
 
